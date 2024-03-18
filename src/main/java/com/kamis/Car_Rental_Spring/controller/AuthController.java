@@ -53,6 +53,7 @@ public class AuthController {
     @PostMapping("/login")
     public AuthenticationResponse createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws
             BadCredentialsException, DisabledException, UsernameNotFoundException {
+
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     authenticationRequest.getEmail(),
@@ -60,10 +61,15 @@ public class AuthController {
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException("Incorrect Email or password.");
         }
+
         final UserDetails userDetails = userService.userDetailsService().loadUserByUsername(authenticationRequest.getEmail());
+
         Optional<User> optionalUser = userRepository.findFirstByEmail(userDetails.getUsername());
+
         final String jwt = jwtUtil.generateToken(userDetails);
+
         AuthenticationResponse authenticationResponse = new AuthenticationResponse();
+
         if (optionalUser.isPresent()) {
             authenticationResponse.setJwt(jwt);
             authenticationResponse.setUserId(optionalUser.get().getId());
