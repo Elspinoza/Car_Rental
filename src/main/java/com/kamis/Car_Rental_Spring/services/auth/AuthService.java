@@ -1,4 +1,4 @@
-package com.kamis.Car_Rental_Spring.services;
+package com.kamis.Car_Rental_Spring.services.auth;
 
 import com.kamis.Car_Rental_Spring.dto.SignupRequest;
 import com.kamis.Car_Rental_Spring.dto.UserDto;

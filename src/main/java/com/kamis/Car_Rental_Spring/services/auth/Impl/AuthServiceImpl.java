@@ -1,11 +1,11 @@
-package com.kamis.Car_Rental_Spring.services.Impl;
+package com.kamis.Car_Rental_Spring.services.auth.Impl;
 
 import com.kamis.Car_Rental_Spring.dto.SignupRequest;
 import com.kamis.Car_Rental_Spring.dto.UserDto;
 import com.kamis.Car_Rental_Spring.entity.User;
 import com.kamis.Car_Rental_Spring.enums.UserRole;
 import com.kamis.Car_Rental_Spring.repository.UserRepository;
-import com.kamis.Car_Rental_Spring.services.AuthService;
+import com.kamis.Car_Rental_Spring.services.auth.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.kamis.Car_Rental_Spring.controller;
 
 import com.kamis.Car_Rental_Spring.dto.SignupRequest;
 import com.kamis.Car_Rental_Spring.dto.UserDto;
-import com.kamis.Car_Rental_Spring.services.AuthService;
+import com.kamis.Car_Rental_Spring.services.auth.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
