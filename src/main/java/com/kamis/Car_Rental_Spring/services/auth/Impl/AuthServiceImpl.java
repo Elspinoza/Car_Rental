@@ -7,6 +7,7 @@ import com.kamis.Car_Rental_Spring.enums.UserRole;
 import com.kamis.Car_Rental_Spring.repository.UserRepository;
 import com.kamis.Car_Rental_Spring.services.auth.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
         User user = new User();
         user.setName(signupRequest.getName());
         user.setEmail(signupRequest.getEmail());
-        user.setPassword(signupRequest.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
         user.setUserRole(UserRole.CUSTOMER);
 
         User createdUser =repository.save(user);
