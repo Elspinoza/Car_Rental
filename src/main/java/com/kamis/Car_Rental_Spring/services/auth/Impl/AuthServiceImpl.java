@@ -6,6 +6,7 @@ import com.kamis.Car_Rental_Spring.entity.User;
 import com.kamis.Car_Rental_Spring.enums.UserRole;
 import com.kamis.Car_Rental_Spring.repository.UserRepository;
 import com.kamis.Car_Rental_Spring.services.auth.AuthService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,19 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository repository;
+    @PostConstruct
+    public void createAdminAccount() {
+        User adminAccount = repository.findByUserRole(UserRole.ADMIN);
+        if (adminAccount == null) {
+            User newAdminAccount = new User();
+            newAdminAccount.setName("Admin");
+            newAdminAccount.setEmail("admin@test.com");
+            newAdminAccount.setPassword(new BCryptPasswordEncoder().encode("admin"));
+            newAdminAccount.setUserRole(UserRole.ADMIN);
+            repository.save(newAdminAccount);
+            System.out.println("Admin account created successfully");
+        }
+    }
 
     @Override
     public UserDto createCustomer(SignupRequest signupRequest) {
