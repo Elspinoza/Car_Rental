@@ -17,14 +17,19 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDto createCustomer(SignupRequest signupRequest) {
+
         User user = new User();
         user.setName(signupRequest.getName());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(signupRequest.getPassword());
         user.setUserRole(UserRole.CUSTOMER);
+
         User createdUser =repository.save(user);
+
+
         UserDto userDto = new UserDto();
         userDto.setId(createdUser.getId());
+
         return userDto;
     }
 
