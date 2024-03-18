@@ -12,13 +12,8 @@ import en from '@angular/common/locales/en';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {HttpClientModule, provideHttpClient} from '@angular/common/http';
-import {NzHeaderComponent} from "ng-zorro-antd/layout";
-import {NzColDirective, NzRowDirective} from "ng-zorro-antd/grid";
-import {NzButtonComponent} from "ng-zorro-antd/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {NzSpinComponent} from "ng-zorro-antd/spin";
-import {NzFormControlComponent, NzFormDirective} from "ng-zorro-antd/form";
-import {NzInputDirective} from "ng-zorro-antd/input";
+import {NgZorroImportsModule} from "./NgZorroImportsModule";
 
 registerLocaleData(en);
 
@@ -28,22 +23,24 @@ registerLocaleData(en);
     LoginComponent,
     SignupComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NzHeaderComponent,
-    NzRowDirective,
-    NzButtonComponent,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    NzSpinComponent,
-    NzColDirective,
-    NzFormDirective,
-    NzInputDirective,
-    NzFormControlComponent
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        //NzHeaderComponent,
+        //NzRowDirective,
+        //NzButtonComponent,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        //NzSpinComponent,
+        //NzColDirective,
+        //NzFormDirective,
+        //NzInputDirective,
+        //NzFormControlComponent,
+        //NzInputGroupComponent,
+        NgZorroImportsModule
+    ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     provideAnimationsAsync(),
