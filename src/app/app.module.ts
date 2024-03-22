@@ -27,18 +27,9 @@ registerLocaleData(en);
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        //NzHeaderComponent,
-        //NzRowDirective,
-        //NzButtonComponent,
         HttpClientModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        //NzSpinComponent,
-        //NzColDirective,
-        //NzFormDirective,
-        //NzInputDirective,
-        //NzFormControlComponent,
-        //NzInputGroupComponent,
         NgZorroImportsModule
     ],
   providers: [
