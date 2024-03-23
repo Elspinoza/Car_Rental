@@ -1,6 +1,6 @@
 package com.kamis.Car_Rental_Spring.services.auth.Impl;
 
-import com.kamis.Car_Rental_Spring.dto.SignupRequest;
+import com.kamis.Car_Rental_Spring.dto.auth.SignupRequest;
 import com.kamis.Car_Rental_Spring.dto.UserDto;
 import com.kamis.Car_Rental_Spring.entity.User;
 import com.kamis.Car_Rental_Spring.enums.UserRole;

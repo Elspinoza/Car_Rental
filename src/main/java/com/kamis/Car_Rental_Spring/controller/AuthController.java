@@ -1,8 +1,8 @@
 package com.kamis.Car_Rental_Spring.controller;
 
-import com.kamis.Car_Rental_Spring.dto.AuthenticationRequest;
-import com.kamis.Car_Rental_Spring.dto.AuthenticationResponse;
-import com.kamis.Car_Rental_Spring.dto.SignupRequest;
+import com.kamis.Car_Rental_Spring.dto.auth.AuthenticationRequest;
+import com.kamis.Car_Rental_Spring.dto.auth.AuthenticationResponse;
+import com.kamis.Car_Rental_Spring.dto.auth.SignupRequest;
 import com.kamis.Car_Rental_Spring.dto.UserDto;
 import com.kamis.Car_Rental_Spring.entity.User;
 import com.kamis.Car_Rental_Spring.repository.UserRepository;
