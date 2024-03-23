@@ -1,4 +1,4 @@
-package com.kamis.Car_Rental_Spring.dto;
+package com.kamis.Car_Rental_Spring.dto.auth;
 
 import com.kamis.Car_Rental_Spring.enums.UserRole;
 import lombok.Data;
