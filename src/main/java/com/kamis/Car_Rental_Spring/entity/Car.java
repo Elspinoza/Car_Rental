@@ -30,6 +30,7 @@ public class Car {
 
     private Date year;
 
+    @Column(columnDefinition = "longblob")
     private byte[] image;
 
 }
