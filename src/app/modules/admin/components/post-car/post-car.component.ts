@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AdminService} from "../../services/admin.service";
+import {NzMessageService} from "ng-zorro-antd/message";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post-car',
@@ -20,7 +23,11 @@ export class PostCarComponent {
   listOfTransmission = ["Manuel", "Automatic"];
   listOfColor = ["Red", "White", "Blue", "Black", "Orange", "Grey", "Silver"];
 
-  constructor( private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private adminService: AdminService,
+    private message: NzMessageService,
+    private router: Router) {
   }
 
   ngOnInit () {
@@ -38,6 +45,8 @@ export class PostCarComponent {
 
   postCar() {
     console.log(this.postCarForm.value);
+    this.isSpinning = true;
+
     const formData: FormData = new FormData();
 
     // @ts-ignore
@@ -60,6 +69,17 @@ export class PostCarComponent {
     formData.append('price', this.postCarForm.get('price').value);
 
     console.log(formData);
+
+    this.adminService.postCar(formData).subscribe((res) => {
+      this.isSpinning = false;
+      this.message.success("Car posted successfully", { nzDuration: 5000 });
+      this.router.navigateByUrl("/admin/dashboard");
+      console.log(res);
+    },error => {
+      this.message.error("Error while posting car", { nzDuration: 5000 });
+    })
+
+
   }
 
   onFileSelected(event:any){
