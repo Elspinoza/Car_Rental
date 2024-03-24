@@ -8,16 +8,23 @@ import {AdminService} from "../../services/admin.service";
 })
 export class AdminDashboardComponent {
 
-  constructor(private adminService: AdminService) {
-  }
+  cars: any =[];
 
-  ngOnInt(){
+  constructor(
+    private adminService: AdminService) {  }
+
+  ngOnInit(){
     this.getAllCars();
   }
 
   getAllCars() {
     this.adminService.getAllCars().subscribe((res)=> {
       console.log(res);
+      // @ts-ignore
+      res.forEach(element => {
+        element.processedImd = 'data:image/jpeg;base64' + element.returnedImage;
+        this.cars.push(element);
+      })
     })
   }
 
