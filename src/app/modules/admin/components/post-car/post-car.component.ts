@@ -50,7 +50,7 @@ export class PostCarComponent {
     const formData: FormData = new FormData();
 
     // @ts-ignore
-    formData.append('img', this.selectedFile);
+    formData.append('image', this.selectedFile);
     // @ts-ignore
     formData.append('brand', this.postCarForm.get('brand').value);
     // @ts-ignore

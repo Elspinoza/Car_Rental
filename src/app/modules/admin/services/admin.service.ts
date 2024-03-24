@@ -12,14 +12,22 @@ export class AdminService {
 
   constructor( private http: HttpClient) { }
 
+  createAuthorizationHeader(): HttpHeaders {
+    let authHeaders: HttpHeaders = new HttpHeaders();
+    return authHeaders.set('Authorization', 'Bearer '+StorageService.getToken());
+  }
+
   postCar(carDto:any):Observable<any>{
     return this.http.post(BASIC_URL+"/api/admin/car", carDto, {
       headers: this.createAuthorizationHeader()});
   }
 
-  createAuthorizationHeader(): HttpHeaders {
-    let authHeaders: HttpHeaders = new HttpHeaders();
-    return authHeaders.set('Authorization', 'Bearer '+StorageService.getToken());
+  getAllCars():Observable<any> {
+    return this.http.get(BASIC_URL+"/api/admin/cars", {
+      headers: this.createAuthorizationHeader()
+    });
+
   }
+
 
 }
