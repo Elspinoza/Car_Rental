@@ -22,9 +22,9 @@ export class AdminDashboardComponent {
       console.log(res);
       // @ts-ignore
       res.forEach(element => {
-        element.processedImd = 'data:image/jpeg;base64' + element.returnedImage;
+        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
         this.cars.push(element);
-      })
+      });
     })
   }
 
