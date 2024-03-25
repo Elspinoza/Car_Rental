@@ -26,7 +26,10 @@ export class AdminService {
     return this.http.get(BASIC_URL+"/api/admin/cars", {
       headers: this.createAuthorizationHeader()
     });
+  }
 
+  deleteCar(id: number):Observable<any> {
+    return this.http.delete(BASIC_URL +"/api/admin/car/"+id)
   }
 
 
