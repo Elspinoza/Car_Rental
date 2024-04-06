@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 
@@ -33,9 +33,10 @@ export class AdminDashboardComponent {
   deleteCar(id:number) {
     console.log(id);
     this.adminService.deleteCar(id).subscribe((res) => {
+      this.message.success("Car deleted successfully", { nzDuration: 5000 });
       this.getAllCars();
-      this.message.success("Car delete successfully", { nzDuration: 5000 });
-    });
+    })
+
   }
 
 }

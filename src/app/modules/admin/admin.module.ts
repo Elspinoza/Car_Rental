@@ -8,12 +8,14 @@ import {NgZorroImportsModule} from "../../NgZorroImportsModule";
 import {NzOptionComponent, NzSelectComponent} from "ng-zorro-antd/select";
 import {NzYearPickerComponent} from "ng-zorro-antd/date-picker";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UpdateCarComponent } from './components/update-car/update-car.component';
 
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    PostCarComponent
+    PostCarComponent,
+    UpdateCarComponent
   ],
   imports: [
     CommonModule,
